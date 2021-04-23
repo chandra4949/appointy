@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Appointy </title>
+</head>
+<body>
+  <header>
+    <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-brand">
+        <figure>
+          <img class=" pl-6" src="data:image/png;base64,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" alt="appointy">
+        </figure>
+      </div>
+    </div>
+
+    <div class="navbar-end pr-6">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="navbar-item">
+            Home
+          </a>
+    
+          <a class="navbar-item">
+            Customers
+          </a>
+          <a class="navbar-item">
+            ContactUs
+          </a>
+          <a class="navbar-item">
+            Enterprises
+          </a>
+          <a class="navbar-item">
+            Price
+          </a>
+          <a class="navbar-item">
+            Login
+          </a>
+          <a class="button is-danger">
+            <strong>Sign up</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+  <main>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-5 mt-6 "><p class="is-size-3"><strong>Education scheduling software <br> to reduce admin work, increse <br> efficiency, and deliver better results </strong></p>
+      <h4>save valuable teaching with easy online appointments,class, scheduling, student management, payments, automated reminders and web conferencing!</h4> <br> <br> <br>
+      <a class="button is-danger">
+        <strong>Get Started now!</strong>
+      </a>
+      <h4>No credit card required! Our free plan is free forever </h4></div> 
+      <div class="column is-5"><img src="assets/maingost.png" alt=""></div>
+      
+    </div>
+    <br><br><br> <br>
+    <div class="has-text-centered">
+      <h2 class="is-size-3"><strong>academic institutions</strong></h2>
+      <h4>Appointy can help businesses and institutions in the education, advising and non-profit domain schedule 1:1</h4> 
+      <h4>sessions, round-robin meetings, and group classes</h4>
+    </div>
+    
+    <br> <br>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-2/5"><p><img src="assets/Schools.png" alt="school"><br> <strong>School</strong> <br> Schools can make class time table, shedule resources, organized staff & parent meetings, career counseling etc. <br><br> <img src="assets/teacher.png" alt=""> <br> <strong>Tutour</strong> <br> Tutors can schedule in-person or online classes, market their business, manage students and</p></div>
+      <div class="column is-2/5"><p><img src="assets/college.png" alt=""><br> <strong>university</strong> <br> Institutions can schedule accademic counseling, advising sessions, application interviews, campus tours, courses , and more</p> <br> <br> <img src="assets/what-chat.png" alt=""> <br> <strong>Student Services</strong> <br>Students can schedule on campus tech support, repair works, admin enquiries etc. with student services</div>
+      <div class="column is-2/5"><p><img src="assets/board-man.png" alt=""><br> <strong>Professors & Teachers</strong> <br> Professions can let students book 1:1 classes, doubtclearing sessions, after school activies, project mentoring, and more</p> <br> <br><img src="assets/notes.png" alt=""><br> <strong>Test Centers</strong> <br> Test CentersTest centers can schedule seats, computers, test taking time-slots and more</div>
+      <div class="column is-2/5"><p><img src="assets/location-set.png" alt=""> <br> <strong>Libraries</strong> <br> Public, school or university libraries can manage booking of study room, computer system.</p> <br> <br> <img src="assets/trofi.png" alt=""><br> <strong>Educational Events</strong> <br> Educational Events Institutions can let attendees reserve a seat for science fairs, art exhibitions, seminars webinars, conferences.</div>
+      <div class="column is-1"></div>
+    </div>
+    <br>
+    <h2 class="has-text-centered is-size-4">
+      <strong>All-in-one education scheduling software that helps you <br>achieve all your academic and business goals  </strong>
+    </h2>
+    <h2 class="has-text-centered">
+      Appointy's education software take the friction out of your scheduling process and helps you grow your <br>teaching business or institute while keeping students as the top priority
+    </h2>
+     <br> <br>
+    <div class="columns mt-6">
+      <div class="column is-1"></div>
+      <div class="column is-1"></div>
+      <div class="column is-2 is-size-5"> <img src="assets/manconnect.png" alt="">
+        <strong>Connect with persepective student easily </strong> <p>Admission offices can make their </p>
+        <p>services easily accessible and enroll</p>
+        <p>new students</p></div>
+      <div class="column is-1"></div>
+      <div class="column is-2 is-size-5"> <img src="assets/shedule.png" alt=""><strong>Give students more convincing booking</strong> <p>avoid any coordination hassles and</p>
+      <p>let students easily schedule</p>
+      <p>appointments & classes with you</p></div>
+      <div class="column is-1"></div>
+      <div class="column is-2 is-size-5"> <img src="assets/manhand.png" alt=""><strong>Best students experience</strong> <p>Store iportant student details that</p>
+        <p>you can use to plan out your advising</p>
+        <p>sessions & classe</p></div>
+      <div class="column is-3"></div>
+      <!-- <div class="column is-1"></div>
+      <div class="column is-1"></div> -->
+    </div>
+    <br> <br> <br> <br> 
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-5 has-text-left is-size-6">
+        <p class="title">Make it easier for students to find and book 1:1 career counselling and academic advising sessions</p>
+        <p>
+          Branded online booking system: Create a professional, multi-lingual booking website for your university or institute.customize it to match your brand - add a logo,services or classes you offer,staff portfolios,campus maps, etc. to ensure that
+          applicants can schedule with the right staff for them <br> <br>
+          <strong>Multi-channel bookings;</strong> Share your booking link with students in emails, texts, brochures,etc. or let them book campus tours and tours and interviews directly from your
+          website with Appointy's website integration.
+        </p>
+        <br>
+        Add a 'book now' button your institute's Facebook and instagram profiles to connect with new students and give them an option to book an admission
+        assistance call instantly
+      </div>
+      <div class="column is-5 has-text-centered">
+        <img src="assets/book.png" alt="">
+      </div>
+      <div class="column is-1"></div>
+    </div>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-5 has-text-centered">
+        <img src="assets/zoom.png" alt="">
+       </div>
+       <div class="column is-5 has-text-left is-size-6">
+         <p>Eliminate the schedule back and forth to empower students to reach out whenever they need you </p> <br> <br>
+         <p><strong>24*7 online scheduling:</strong> Students can easily find a time that works for them and book a session or sign-up for recurring classes on thier own. confirmed appoints are added to your calender so that you.re never double booked! </p> <br>
+         <p> <strong>intelligent timezone detection:</strong> help students & applicants around the globe and ensure that everyone who wants to schedule with you can view your availability in their time zone </p>
+      </div>
+      <div class="column is-1"></div>
+    </div>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-5 has-text-left is-size-6">
+        <p class="title">Personalize sessions based on student's needs and elevate their
+
+          experience & satisfaction</p>
+        <p>
+          Dedicated student profiles: Collect important student information like contact details, classes attended, payments, tudent profiles. Use notes to make quick remarks about weak subjects, career analysis, etc. to communicate
+
+          progress reports to parents regularly.
+          
+          Intake forms: Collect crucial info at the time of enrollment using our intake forms to prepare better lesson plans and consultation notes before your sessions.
+          
+          Online Reputation Management: Automatically request reviews from happy parents and students after a session. Promote these positive reviews on your social media and display them on your booking page with just a click.
+        </p>
+        <br>
+        Add a 'book now' button your institute's Facebook and instagram profiles to connect with new students and give them an option to book an admission
+        assistance call instantly
+      </div>
+
+
+
+
+      <div class="column is-5 has-text-centered">
+        <img src="assets/prepare.png" alt="">
+      </div>
+      <div class="column is-1"></div>
+    </div>
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Appointy handles your everyday admin so that you can <br> focus on increasing student success
+      </h1>
+      <p>Cost-effective education booking software that streamlines end-to-end operations, reduces no-shows, and <br>
+
+        ensures that your staff isn't overwhelmed </p>
+      <br> <br>
+      
+    </div>
+    <br>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-2/5"><p><img src="assets/shedule-univer.png" alt="school"><br>Schools can make class time table, shedule resources, organized staff & parent meetings, career counseling etc. <br><br> <img src="assets/people-setting.png" alt=""> <br> Tutors can schedule in-person or online classes, market their business, manage students and</p></div>
+      <div class="column is-2/5"><p><img src="assets/notifi.png" alt=""><br>Institutions can schedule accademic counseling, advising sessions, application interviews, campus tours, courses , and more</p> <br> <br> <img src="assets/card-money.png" alt=""> <br>Students can schedule on campus tech support, repair works, admin enquiries etc. with student services</div>
+      <div class="column is-2/5"><p><img src="assets/lab-exam.png" alt=""><br> Professions can let students book 1:1 classes, doubtclearing sessions, after school activies, project mentoring, and more</p> <br> <br><img src="assets/pie-chart.png" alt=""><br>Test Centers
+
+        Test centers can schedule seats, computers, test taking time-slots and more</div>
+      <div class="column is-2/5"><p><img src="assets/shedule-univer.png" alt=""> <br> Public, school or university libraries can manage booking of study room, computer system.</p> <br> <br> <img src="assets/whatsapp.png" alt=""><br>Educational Events
+
+        Institutions can let attendees reserve a seat for science fairs, art exhibitions, seminars,
+        
+        webinars, conferences.</div>
+      <div class="column is-1"></div>
+    </div>
+    <br> <br> 
+
+
+
+
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Appointy integrates with the apps you already use
+      </h1>
+      <p>Education scheduling software that integrates with populats payments apps , social media, video conferencing tools, and personal/ <br> work calender</p>
+      <br> <br>
+      <button class="button is-rounded is-outlined">Multiple Payment Apps</button>
+      <button class="button is-rounded is-outlined">personal & Work Calendar</button>
+      <button class="button is-rounded is-outlined">video conferencing</button>
+    </div>
+    <br> <br>
+    <figure class="image is-400x92">
+      <img src="assets/all2.png" alt="">
+    </figure>
+    <br> <br><br><br>
+    <div class="container has-text-centered">
+      <h1 class="title">custom online scheduling softWare to fit the unique needs of <br> universities, schools and tutoring centers</h1>
+      <p>we have designed tailor made scheduling software solutions for various educational institutes tohelp complex <br> booking process</p>
+    </div>
+      <br> <br> <br>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-2/5"><p><img src="assets/puzzle.png" alt=""><br> <strong>Third-party integrations</strong> <br> Schools can make class time table, shedule resources, organized staff & parent meetings, career counseling etc. tudents and</p></div>
+      <div class="column is-2/5"><p><img src="assets/gallary.png" alt=""><br> <strong>End-to-End Branding</strong>  <br> Institutions can schedule accademic counseling, advising sessions, application interviews, campus tours, courses , and more</p></div>
+      <div class="column is-2/5"><p><img src="assets/flow-chat.png" alt=""><br> <strong>Custom Workflow</strong> <br> Professions can let students book 1:1 classes, doubtclearing sessions, after school activies, project mentoring, and more</p></div>
+      <div class="column is-2/5"><p><img src="assets/call-serve.png" alt=""> <br> <strong>Dedicated Support</strong> <br> Public, school or university libraries can manage booking of study room, computer system.</p></div>
+      <div class="column is-1"></div>
+    </div>
+    <br> <br> 
+
+    <!-- <div class="container has-text-centered "> -->
+    <h3 class="has-text-centered is-size-2">
+      <strong>
+        23,000+ Educators and institut use apointy worldwide
+      </strong>
+    </h3>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-4.5">
+        <p class="border">
+          Appointy gives our students a fast and efficient way to <br> book their sessions. It has completely eliminated missed <br> appointments, human typos, back-and-forth emails and <br> more issues like these for us. We can now control almost <br> every single aspect of the booking process and our admin <br> team has more time available to talk to students and for <br> other tasks. This has improved our customer satisfaction  <br> rate. We've got so many new students with a positive <br> word of mouth about our business!
+
+- Owner, BeMo Academic Consulting
+        </p>
+      </div>
+      <div class="column is-4.5">
+        <p class="border">
+          Appointy has helped our appointment system become <br> much easier and less work. We have more accurate data <br> on daily and sales report. And it is easier to track the <br> appointment status. It is very customizable and suits to <br> your company needs. And the customer service is <br> excellent!! Their live chat ready to answer your questions <br> within seconds.
+
+- Chyntia P., Counselor, Education Management
+        </p>
+      </div>
+      <div class="column is-1"></div>
+    </div>
+    <div class="container has-text-centered">
+      <h1 class="title">try appoint's education sheduling software. Get your free account now! </h1>
+    </div>
+    <br> <br> <br>
+    <div class="has-text-centered" >
+      <a class="button is-danger">
+        <strong>Sign Now -></strong>
+      </a>
+      <br> <br>
+      <h4>No credit card required! Our free plan is free forever </h4>
+    </div>
+  </main>
+  <br> <br> <br>
+  <footer>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-2/5"><p><strong>PRODUCT</strong> <br> <p>HOME</p> <br> <P>customers</P> <br> <p>Contact Us</p> <br> <p>Retain customers</p> </p></div>
+      <div class="column is-2/5"><p><Strong>FEATURES</Strong> <br> <p>Schedule online</p> <br> <p> Increse product</p> <br> <p>Attract customer</p> </div>
+      <div class="column is-2/5"><p><strong>SUPPORT</strong> <br> <p>help</p> <br> <p>screen nsharing </p> <br> <p>affiliate program</p> </p></div>
+      <div class="column is-2/5"><p><STRong>CONTACT US</STRong> <br> <p>Appointy</p> <br> <p>contact@appointy.com</p> <br> <p>privacy policy</p> <br> <p>GDPR</p> </p></div>
+      <div class="column is-1"></div>
+    </div>
+  </footer>
+  <br> <br>
+  <p class="has-text-centered">copyright 2020 @ Appoint All rights reserved</p>
+</body>
+</html>
